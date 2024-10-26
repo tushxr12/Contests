@@ -4,7 +4,6 @@ using namespace std;
 
 void solve()
 {
-    // cout<<"Working\n";
     int n, d;
     cin >> n >> d;
     vector<int> v;
