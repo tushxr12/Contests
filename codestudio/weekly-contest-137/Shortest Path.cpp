@@ -1,6 +1,5 @@
 int shortestPath(int n, string &s)
 {
-    // Write your code here.
     int ans = INT_MAX;
 
     int rInd = -1, bInd = -1, gInd = -1;
