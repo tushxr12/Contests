@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-//Solve function
 void solve()
 {
     vector<int> s(3), t(3);
@@ -24,7 +23,6 @@ void solve()
     cout<<ans;
 }
 
-//Main function
 int main() {
     int t;cin>>t;
     while(t--)
