@@ -22,7 +22,7 @@ void solve()
     }
     cout<<ans;
 }
-//
+
 int main() {
     int t;cin>>t;
     while(t--)
