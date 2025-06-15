@@ -16,3 +16,26 @@ public:
         return (cnt%mod);
     }
 };
+
+//Better
+class Solution {
+public:
+    int mod = 1e9 + 7;
+    int specialTriplets(vector<int>& nums) {
+        int n = nums.size();
+        unordered_map<int, int> right, left;
+        for (int num : nums) right[num]++;
+
+        long long cnt = 0;
+        for (int j = 0; j < n; ++j) {
+            right[nums[j]]--; 
+            int doubleVal = nums[j] * 2;
+            cnt += (long long)left[doubleVal] * right[doubleVal];
+            cnt %= mod;
+
+            left[nums[j]]++;
+        }
+
+        return cnt;
+    }
+};
