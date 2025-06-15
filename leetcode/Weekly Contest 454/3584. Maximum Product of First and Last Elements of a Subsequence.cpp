@@ -29,3 +29,28 @@ public:
         return result;
     }
 };
+
+//Upsolve
+class Solution {
+public:
+    long long maximumProduct(vector<int>& nums, int m) {
+        long long ans = LLONG_MIN;
+        if(m == 1)
+        {
+            for(auto i : nums)
+                ans = max(ans, (long long)i*i);
+            return ans;
+        }
+
+        int n = nums.size();
+        set<int> st;
+        for(int i = m - 1;i < n;i++)
+        {
+            st.insert(nums[i - (m - 1)]);
+            int mn = *(st.begin()), mx = *(st.rbegin());
+            ans = max(ans, mx*(long long)nums[i]);
+            ans = max(ans, mn*(long long)nums[i]);
+        }
+        return ans;
+    }
+};
