@@ -24,3 +24,32 @@ public:
         return min(ans, ans.substr(0,100));
     }
 };
+
+//Upsolve (Cleaner implementation)
+class Solution {
+public:
+    string generateTag(string caption) {
+        bool caps = false;
+        int n = caption.size();
+        string ans = "#";
+        
+        for(int i = 0;i < n;i++)
+        {
+            if(caption[i] == ' '){
+                if(ans.size() > 1)
+                    caps = true;
+            }
+            else
+            {
+                if(caps)
+                    ans += toupper(caption[i]);
+                else
+                    ans += tolower(caption[i]);
+                caps = false;
+            }
+            if(ans.size() == 100)
+                break;
+        }
+        return ans;
+    }
+};
