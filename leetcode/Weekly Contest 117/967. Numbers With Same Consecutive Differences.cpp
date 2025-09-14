@@ -28,3 +28,42 @@ public:
         return ans;
     }
 };
+
+
+// BFS Approach
+
+class Solution {
+public:
+    vector<int> numsSameConsecDiff(int n, int k) {
+        if(n == 1)
+            return {0,1,2,3,4,5,6,7,8,9};
+        
+        queue<int> q;
+        for(int i = 1;i <= 9;i++)
+            q.push(i);
+        
+        for(int level = 1; level < n;level++){
+            int sz =q.size();
+
+            for(int i = 0;i < sz;i++){
+                int num = q.front();
+                q.pop();
+
+                int ld = num%10;
+
+                if(ld + k < 10)
+                    q.push(num*10 + ld + k);
+                if(k != 0 && ld - k >= 0)
+                    q.push(num*10 + ld - k);
+            }
+        }
+
+        vector<int> ans;
+        while(!q.empty())
+        {
+            ans.push_back(q.front());
+            q.pop();
+        }
+        return ans;
+    }
+};
