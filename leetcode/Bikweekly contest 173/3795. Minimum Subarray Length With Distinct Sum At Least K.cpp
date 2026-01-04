@@ -32,6 +32,8 @@ public:
             }
             right++;
         }
+
+        // in case its never updated
         return (ans == INT_MAX) ? -1 : ans;
     }
 };
