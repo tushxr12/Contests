@@ -17,7 +17,7 @@ public:
         }
         int cnt = 0;
         for(int i = 0;i < n;i++){
-            char currChar = s[i]; // a
+            char currChar = s[i]; 
 
             if(mpp.find(currChar) != mpp.end() && ans.size() -1 -mpp[currChar] < k){
                 continue;
